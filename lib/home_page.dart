@@ -34,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage>
   Future refresh() async {
     page = 1;
     data = [];
-    getData();
+    await getData();
   }
 
   Future getData() async {
@@ -73,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage>
             }
             return notification.depth == 0;
           },
-          onRefresh: () async {},
+          onRefresh: refresh,
           child: ExtendedNestedScrollView(
             onlyOneScrollInBody: true,
             controller: scrollController,
